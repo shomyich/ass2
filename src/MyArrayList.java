@@ -86,7 +86,10 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public T get(int index) {
-        return null;
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index is out of bounds: " + index);
+        }
+        return (T) arr[index];
     }
 
     @Override
