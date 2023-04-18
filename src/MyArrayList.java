@@ -114,6 +114,6 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void sort() {
-
+        Arrays.sort(arr, 0, size);
     }
 }
