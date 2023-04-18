@@ -36,7 +36,20 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void add(T item, int index) {
-
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index is out of bounds: " + index);
+        }
+        int minLength = size + 1;
+        if (minLength > arr.length) {
+            int newCapacity = arr.length * 2;
+            if (newCapacity < minLength) {
+                newCapacity = minLength;
+            }
+            arr = Arrays.copyOf(arr, newCapacity);
+        }
+        System.arraycopy(arr, index, arr, index + 1, size - index);
+        arr[index] = item;
+        size++;
     }
 
     @Override
