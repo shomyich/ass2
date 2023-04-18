@@ -80,7 +80,8 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void clear() {
-
+        Arrays.fill(arr, null);
+        size = 0;
     }
 
     @Override
