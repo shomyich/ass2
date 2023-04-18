@@ -4,6 +4,13 @@ public class MyArrayList<T> implements MyList<T> {
     private int size;
     private Object[] arr;
 
+
+    public MyArrayList() {
+        arr = new Object[10];
+        size = 0;
+    }
+
+
     @Override
     public int size() {
         return size;
