@@ -66,8 +66,17 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public T remove(int index) {
-        return null;
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index is out of bounds: " + index);
+        }
+        T item = get(index);
+        for (int i = index; i < size - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+        arr[--size] = null;
+        return item;
     }
+
 
     @Override
     public void clear() {
