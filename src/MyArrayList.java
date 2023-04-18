@@ -1,10 +1,11 @@
 import java.util.Arrays;
 
 public class MyArrayList<T> implements MyList<T> {
+    private int size;
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
