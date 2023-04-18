@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 public class MyArrayList<T> implements MyList<T> {
     private int size;
+    private Object[] arr;
 
     @Override
     public int size() {
