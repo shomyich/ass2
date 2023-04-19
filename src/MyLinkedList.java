@@ -1,8 +1,14 @@
 public class MyLinkedList implements MyList{
 
+    private Node head;
+    private Node tail;
+    private int size;
+
+
+
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -56,12 +62,15 @@ public class MyLinkedList implements MyList{
     }
 
 
-    private class Node<T>{
-        public T data;
-        public Node<T> next;
-        public Node(T data) {
-            this.data = data;
-            this.next = null;
+    private class Node<T> {
+        T date;
+        Node next;
+        Node prev;
+
+        public Node(T date, Node next, Node prev) {
+            this.date = date;
+            this.next = next;
+            this.prev = prev;
         }
     }
 
