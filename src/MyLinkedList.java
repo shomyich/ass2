@@ -18,8 +18,16 @@ public class MyLinkedList implements MyList{
 
     @Override
     public boolean contains(Object o) {
+        Node current = head;
+        while (current != null) {
+            if (current.date.equals(o)) {
+                return true;
+            }
+            current = current.next;
+        }
         return false;
     }
+
 
     @Override
     public boolean add(Object item) {
