@@ -155,8 +155,37 @@ public class MyLinkedList implements MyList{
 
     @Override
     public void sort() {
-
+        if (size <= 1) {
+            return;
+        }
+        boolean sorted = false;
+        while (!sorted) {
+            sorted = true;
+            Node prev = null;
+            Node current = head;
+            Node next = head.next;
+            while (next != null) {
+                if (((Comparable) current.date).compareTo(next.date) > 0) {
+                    sorted = false;
+                    if (prev != null) {
+                        prev.next = next;
+                    } else {
+                        head = next;
+                    }
+                    current.next = next.next;
+                    next.next = current;
+                    Node temp = next;
+                    next = current;
+                    current = temp;
+                }
+                prev = current;
+                current = current.next;
+                next = next.next;
+            }
+            tail = current;
+        }
     }
+
 
 
     private class Node<T> {
