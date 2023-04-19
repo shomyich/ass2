@@ -55,14 +55,59 @@ public class MyLinkedList implements MyList{
     }
 
     @Override
-    public boolean remove(Object item) {
-        return false;
+    public Object remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of range: " + index);
+        }
+        Node current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        if (current == head) {
+            head = current.next;
+            if (head != null) {
+                head.prev = null;
+            }
+        } else if (current == tail) {
+            tail = current.prev;
+            if (tail != null) {
+                tail.next = null;
+            }
+        } else {
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+        }
+        size--;
+        return current.date;
     }
 
     @Override
-    public Object remove(int index) {
-        return null;
+    public boolean remove(Object o) {
+        Node current = head;
+        while (current != null) {
+            if (current.date.equals(o)) {
+                if (current == head) {
+                    head = current.next;
+                    if (head != null) {
+                        head.prev = null;
+                    }
+                } else if (current == tail) {
+                    tail = current.prev;
+                    if (tail != null) {
+                        tail.next = null;
+                    }
+                } else {
+                    current.prev.next = current.next;
+                    current.next.prev = current.prev;
+                }
+                size--;
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
     }
+
 
     @Override
     public void clear() {
