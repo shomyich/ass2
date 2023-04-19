@@ -54,4 +54,17 @@ public class MyLinkedList implements MyList{
     public void sort() {
 
     }
+
+
+    private class Node<T>{
+        public T data;
+        public Node<T> next;
+        public Node(T data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
 }
+
+

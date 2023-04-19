@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         int choice1 = 0;
         do {
@@ -15,7 +16,7 @@ public class Main {
 
                         System.out.println(
                                 "0 - output whole array" + "\n" +
-                                "1 - get the size of the array" + "\n" +
+                                        "1 - get the size of the array" + "\n" +
                                         "2 - is there this element in the array?" + "\n" +
                                         "3 - adding a new element to an array" + "\n" +
                                         "4 - adding a new element to the array by index " + "\n" +
@@ -30,7 +31,7 @@ public class Main {
                         choise2 = sc.nextInt();
                         switch (choise2) {
                             case 0:
-                                for(int i = 0; i < list.size(); i++){
+                                for (int i = 0; i < list.size(); i++) {
                                     System.out.print(list.get(i) + " ");
                                 }
                                 break;
@@ -96,6 +97,7 @@ public class Main {
                     break;
 
                 case 2:
+
             }
             System.out.println();
         } while (choice1 != 3);
