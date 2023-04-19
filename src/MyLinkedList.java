@@ -71,7 +71,21 @@ public class MyLinkedList implements MyList{
 
     @Override
     public Object get(int index) {
-        return null;
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of range: " + index);
+        }
+        Node current = head;
+        if (index < size / 2) {
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+        } else {
+            current = tail;
+            for (int i = size - 1; i > index; i--) {
+                current = current.prev;
+            }
+        }
+        return current.date;
     }
 
     @Override
