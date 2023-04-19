@@ -4,6 +4,11 @@ public class MyLinkedList implements MyList{
     private Node tail;
     private int size;
 
+    public MyLinkedList() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
 
 
     @Override
