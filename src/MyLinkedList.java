@@ -145,12 +145,30 @@ public class MyLinkedList implements MyList{
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        Node current = head;
+        int index = 0;
+        while (current != null) {
+            if (current.date.equals(o)) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        Node current = tail;
+        int index = size - 1;
+        while (current != null) {
+            if (current.date.equals(o)) {
+                return index;
+            }
+            current = current.prev;
+            index--;
+        }
+        return -1;
     }
 
     @Override
