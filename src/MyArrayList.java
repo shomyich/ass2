@@ -22,7 +22,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public void add(T item) {
+    public boolean add(T item) {
         int minLength = size + 1;
         if (minLength > arr.length) {
             int newCapacity = arr.length * 2;
@@ -32,6 +32,7 @@ public class MyArrayList<T> implements MyList<T> {
             arr = Arrays.copyOf(arr, newCapacity);
         }
         arr[size++] = item;
+        return false;
     }
 
     @Override

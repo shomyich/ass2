@@ -22,7 +22,16 @@ public class MyLinkedList implements MyList{
     }
 
     @Override
-    public void add(Object item) {
+    public boolean add(Object item) {
+        Node node = new Node(item, null, tail);
+        if (size == 0) {
+            head = node;
+        } else {
+            tail.next = node;
+        }
+        tail = node;
+        size++;
+        return true;
 
     }
 
