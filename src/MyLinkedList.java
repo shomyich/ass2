@@ -36,8 +36,22 @@ public class MyLinkedList implements MyList{
     }
 
     @Override
-    public void add(Object item, int index) {
-
+    public void add(Object element, int index) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index out of range: " + index);
+        }
+        if (index == size) {
+            add(element);
+        } else {
+            Node current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+            Node node = new Node(element, current, current.prev);
+            current.prev.next = node;
+            current.prev = node;
+            size++;
+        }
     }
 
     @Override
