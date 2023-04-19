@@ -10,10 +10,11 @@ public class Main {
             switch (choice1) {
                 case 1:
                     int choise2;
-                    MyList<Integer> list = new MyArrayList<>();
+                    MyList<Object> list = new MyArrayList<>();
                     do {
 
                         System.out.println(
+                                "0 - output whole array" + "\n" +
                                 "1 - get the size of the array" + "\n" +
                                         "2 - is there this element in the array?" + "\n" +
                                         "3 - adding a new element to an array" + "\n" +
@@ -28,38 +29,76 @@ public class Main {
                                         "12 - go back");
                         choise2 = sc.nextInt();
                         switch (choise2) {
+                            case 0:
+                                for(int i = 0; i < list.size(); i++){
+                                    System.out.print(list.get(i) + " ");
+                                }
+                                break;
                             case 1:
                                 System.out.println(list.size());
                                 break;
                             case 2:
                                 System.out.println("input element: ");
-                                int case2 = sc.nextInt();
+                                Object case2 = sc.next();
                                 System.out.println(list.contains(case2));
                                 break;
                             case 3:
                                 System.out.println("input new element: ");
-                                int case3 = sc.nextInt();
+                                Object case3 = sc.next();
                                 list.add(case3);
                                 break;
                             case 4:
                                 System.out.println("input new element: ");
-                                int case4 = sc.nextInt();
+                                Object case4 = sc.next();
                                 System.out.println("input index: ");
                                 int case4Index = sc.nextInt();
                                 list.add(case4, case4Index);
                                 break;
                             case 5:
                                 System.out.println("input element: ");
-                                int case5 = sc.nextInt();
+                                Object case5 = sc.next();
                                 System.out.println(list.remove(case5));
+                                break;
+                            case 6:
+                                System.out.println("input index: ");
+                                int case6 = sc.nextInt();
+                                list.remove(case6);
+                                break;
+                            case 7:
+                                System.out.println("input index: ");
+                                int case7 = sc.nextInt();
+                                System.out.println(list.get(case7));
+                                break;
+                            case 8:
+                                list.clear();
+                                System.out.println("array is empty");
+                                break;
+                            case 9:
+                                list.sort();
+                                System.out.println("list is sorted");
+                                break;
+                            case 10:
+                                System.out.println("input element: ");
+                                Object case10 = sc.next();
+                                System.out.println(list.indexOf(case10));
+                                break;
+                            case 11:
+                                System.out.println("input element: ");
+                                Object case11 = sc.next();
+                                System.out.println(list.lastIndexOf(case11));
+                                break;
+                            case 12:
+                                break;
 
                         }
 
-                    } while (choise2 != 13);
+                    } while (choise2 != 12);
+                    break;
+
                 case 2:
             }
             System.out.println();
-        } while (choice1 != 1);
+        } while (choice1 != 3);
 
     }
 }
