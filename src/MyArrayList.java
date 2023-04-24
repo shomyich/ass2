@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Collection;
+
 
 public class MyArrayList<T> implements MyList<T> {
     private int size;
@@ -33,6 +35,33 @@ public class MyArrayList<T> implements MyList<T> {
         }
         arr[size++] = item;
         return false;
+    }
+    public void reverse() {
+        for (int i = 0; i < size() / 2; i++) {
+            Object temp = arr[i];
+            arr[i] = arr[size() - i - 1];
+            arr[size() - i - 1] = temp;
+        }
+    }
+
+    @Override
+    public void shuffle() {
+
+    }
+
+    @Override
+    public void addAll(Collection<? extends T>collection) {
+        int minLength = size + collection.size();
+        if (minLength > arr.length) {
+            int newCapacity = arr.length * 2;
+            if (newCapacity < minLength) {
+                newCapacity = minLength;
+            }
+            arr = Arrays.copyOf(arr, newCapacity);
+        }
+        for (T item : collection){
+            arr[size++]= item;
+        }
     }
 
     @Override
